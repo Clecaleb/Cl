@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Impostos no Day Trader</title>
+  <style>
+    /* Estilos CSS para a interface */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="number"] {
+      width: 100px;
+    }
+    button {
+      margin-top: 10px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Impostos no Day Trader</h1>
+  <label for="lucro">Informe o lucro em reais:</label>
+  <input type="number" id="lucro" min="0">
+  <label for="trades">Informe a quantidade de trades realizados no mês:</label>
+  <input type="number" id="trades" min="0">
+  <button onclick="calcularImpostos()">Calcular</button>
+  <div id="resultado"></div>
+
+  <script>
+    function calcularImpostos() {
+      var lucro = parseFloat(document.getElementById("lucro").value);
+      var trades = parseInt(document.getElementById("trades").value);
+
+      var impostos = 0;
+      if (lucro > 0 && trades > 0) {
+        // Cálculo dos impostos (exemplo: 15% sobre o lucro multiplicado pela quantidade de trades)
+        impostos = (lucro * 0.15) * trades;
+      }
+
+      document.getElementById("resultado").innerHTML = "Impostos a pagar: R$" + impostos.toFixed(2);
+    }
+  </script>
+</body>
+</html>
